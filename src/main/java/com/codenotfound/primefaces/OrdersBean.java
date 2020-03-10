@@ -1,16 +1,32 @@
 package com.codenotfound.primefaces;
 
+import com.codenotfound.model.Order;
+import java.util.ArrayList;
+import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
 @ManagedBean
-@SessionScoped
-public class LoginBean {
+@ViewScoped
+public class OrdersBean {
+    
+  private List<Order> orders = new ArrayList<>();
 
-  private String userName;
-  private String password;
+  @PostConstruct  
+  public void initialize(){
+      //Aca hariamos el llamado HTTP (Jersey Client)
+      orders.add(new Order(1, "abc"));
+      orders.add(new Order(2, "efg"));
+      
+      
+  }
   
-  public LoginBean(){
+  
+  
+  
+  /*
+  public OrdersBean(){
       System.out.println("Construyendo el bean");
   }
   
@@ -23,7 +39,7 @@ public class LoginBean {
       }
   }
 
-  /*
+  
 
   public String showGreeting() {
     return "Hello " + firstName + " " + lastName + "!";
@@ -32,7 +48,7 @@ public class LoginBean {
   public void onClick(){
     System.out.println("click ...");
   }
-*/
+
 
     public String getUserName() {
         System.out.println("Username getter");
@@ -53,4 +69,6 @@ public class LoginBean {
         System.out.println("Password setter");
         this.password = password;
     }
+
+*/
 }
