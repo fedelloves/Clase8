@@ -22,17 +22,10 @@ public class LoginBean {
           return "index";
       }
   }
-
-  /*
-
-  public String showGreeting() {
-    return "Hello " + firstName + " " + lastName + "!";
+  
+  public String logout() {
+      return "";
   }
-
-  public void onClick(){
-    System.out.println("click ...");
-  }
-*/
 
     public String getUserName() {
         System.out.println("Username getter");

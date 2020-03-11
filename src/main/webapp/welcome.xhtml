@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
   xmlns:h="http://java.sun.com/jsf/html"
-  xmlns:p="http://primefaces.org/ui">
+  xmlns:p="http://primefaces.org/ui"
+  xmlns:f="http://xmlns.jcp.org/jsf/core">
 
 <h:head>
   <title>PrimeFaces Hello World Example</title>
@@ -15,6 +16,34 @@
             <h:commandLink value="Logout" action="#{loginBean.logout()}"></h:commandLink>>
         </h:form>
     </div>
+    
+    //Version a mano
+    
+    <h:dataTable value="#{ordersBean.orders}" var="o">
+        <h:column>
+            <f:facet name="header">ID</f:facet>
+            #{o.id}
+        </h:column>
+        <h:column>
+            <f:facet name="header">NOMBRE</f:facet>
+            #{o.nombre}
+        </h:column>
+        
+    </h:dataTable>
+    */
+    
+    <hr></hr>
+    
+    //Version usando PrimeFaces Showcase
+    <p:dataTable var="o" value="#{ordersBean.orders}">
+        <p:column headerText="ID">
+            <h:outputText value="#{o.id}" />
+        </p:column>
+
+        <p:column headerText="NOMBRE">
+            <h:outputText value="#{o.nombre}" />
+        </p:column>
+    </p:dataTable>
     
   
 </h:body>
